@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+.my-card {
+  margin: 25px;
+}
+h5 {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+h4 {
+  margin-bottom: 0;
+}
+small {
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.float-right {
+  float: right;
+}
+.my-btn {
+  margin-bottom: 0.1rem;
+  text-align: left;
+}
+/* .item1 {
+  width: 80%;
+  height: auto;
+  padding-right: 1.25rem;
+  float: left;
+}
+.item2 {
+  width: 20%;
+  height: auto;
+  float: right; //only so they are in same line. Problem: doesn't have same height as item1 - Works without it with small gab at the bottom
+  position: relative;
+  padding-top: 0.75rem;
+}
+.bottom-right{
+  position: absolute;
+   bottom: 0.75rem;
+   right: 1.25rem;
+}  */
+.grid-1 {
+  display: grid;
+  width: 100%;
+  grid-gap: 1.25rem;
+  position: relative; 
+  grid-template-columns: 80% 20%; 
+}
+.item1 {
+  grid-area: 1 / 1;
+  /* min-height: 2.35rem; */
+}
+
+.bottom-right{
+  position: absolute;
+   bottom: 0.75rem;
+   right: 1.25rem;
+  grid-area: 1 / 2;
+} 
