@@ -12,7 +12,7 @@ import { getLocaleComponentStrings } from "../../utils/locale";
 })
 export class CdsCard {
 
-  @Prop() card:string;
+  @Prop() card!:string;
   @Prop() showSuggestionActions: boolean;
 
   @Prop() locale: string = "en";

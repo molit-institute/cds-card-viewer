@@ -25,7 +25,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CdsCard {
-        "card"?: string;
+        "card": string;
         "locale"?: string;
         "showSuggestionActions"?: boolean;
     }

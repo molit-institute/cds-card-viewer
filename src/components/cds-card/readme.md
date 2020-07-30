@@ -9,7 +9,7 @@
 
 | Property                | Attribute                 | Description | Type      | Default     |
 | ----------------------- | ------------------------- | ----------- | --------- | ----------- |
-| `card`                  | `card`                    |             | `string`  | `undefined` |
+| `card` _(required)_     | `card`                    |             | `string`  | `undefined` |
 | `locale`                | `locale`                  |             | `string`  | `"en"`      |
 | `showSuggestionActions` | `show-suggestion-actions` |             | `boolean` | `undefined` |
 
