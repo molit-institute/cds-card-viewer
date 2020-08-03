@@ -35,7 +35,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     #testing
-    - run: npm run test-e2e
+    - run: npm run test
     #publish if all previous steps run through
     - name: publish
       if: ${{ success() }}
