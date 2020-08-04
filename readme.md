@@ -52,3 +52,5 @@ Need more information? Check out the [StencilJS Framework Integration Guide](htt
 | Name                                  | Description                   | Example                               |
 | ------------------------------------- | ------------------------------| ------------------------------------- |
 | [cds-card](src/components/cds-card)   | Displays the given CDS card.  | `<cds-card card='{...}'></cds-card>`  |
+
+<footer> *Built with love! by MOLIT Institut gGmbH ❤❤* </footer>
