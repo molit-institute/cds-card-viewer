@@ -1,24 +1,24 @@
-import { getAssetPath } from "@stencil/core";
-
   async function fetchLocaleStringsForComponent(
     componentName: string,
     locale: string
   ): Promise<any> {
     try {
-      const response = await fetch(getAssetPath('../i18n/' + componentName + '.i18n.' + locale + '.json')); // Fetch the resource 
-      const contentType = response.headers.get("content-type");
-      if(contentType && contentType.indexOf("application/json") !== -1){ // Checks if response is json
-        const text = await response.text(); // Parse it as text
-        const data = JSON.parse(text); // Try to parse it as json
-        return data;
-      }else{ //Default if response is not json
-        return import('../i18n/' + componentName + '.i18n.' + locale + '.json').then(a => {
-          return a.default;
-        });
+      switch(locale.toLowerCase()) {
+        case "en": {
+          const response = await import('../i18n/i18n.en.js');
+          return response.default;
+        }
+        case "de": {
+          const response = await import('../i18n/i18n.de.js');
+          return response.default;
+        }
+        default: { 
+          throw new TypeError("The provided locale (" + locale + ") wasn't valid");             
+        } 
       }
     } catch(e) {
-      console.error("An error occured while fetching the Local Strings for the Component (" + componentName+ "): " + e)
-    } 
+      console.error("An error occured while fetching the Language File for the Component (" + componentName+ "): " + e)
+    }   
     
   }
 
