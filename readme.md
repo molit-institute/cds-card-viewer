@@ -49,9 +49,9 @@ Need more information? Check out the [StencilJS Framework Integration Guide](htt
 
 ## Components
 
-| Name                                                                                                  | Description                   | Example                               |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------| ------------------------------------- |
-| [cds-card](https://github.com/molit-institute/cds-card-viewer/tree/master/src/components/cds-card)    | Displays the given CDS card.  | `<cds-card card='{...}'></cds-card>`  |
+| Name                                                                                                  | Description                   | Example                               | Example Component                                 |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------| ------------------------------------- | ------------------------------------------------- |
+| [cds-card](https://github.com/molit-institute/cds-card-viewer/tree/master/src/components/cds-card)    | Displays the given CDS card.  | `<cds-card card='{...}'></cds-card>`  | [:link:](https://docs.molit.eu/cds-card-viewer/)  |
 
 ----------------------------------------------
 
