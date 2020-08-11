@@ -127,15 +127,17 @@ export class CdsCard {
                   : null
                 }
                 { this.cardParsed.hasOwnProperty("links") && this.cardParsed.links!=null ?
-                  ( <div>
+                   <div>
+                      <br/>
                       <h5>{this.strings.links}</h5>
                       {this.cardParsed.links.map(link =>
-                        <div>
-                          <button type="button" class="btn btn-primary btn-block my-btn" onClick={() => window.open(link.url, '_blank')}>{link.label}</button>
-                        </div>
+                        <ul class="link-ul">
+                          {/*<button type="button" class="btn btn-primary btn-block my-btn" onClick={() => window.open(link.url, '_blank')}>{link.label}</button> */}
+                          <li><a href={link.url}>{link.label}</a></li>
+                        </ul>
                       )}
                     </div>
-                  ) 
+                   
                   : null
                 }
               </div>
