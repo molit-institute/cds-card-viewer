@@ -68,7 +68,8 @@
         "type":"Clinical Trial",
         "appContext":null
       }]
-    }'
+    }
+  }'
 ></cds-card>
 ```
 
