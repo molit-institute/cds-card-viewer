@@ -1,5 +1,5 @@
 export default {
-    "acceptActions": "annehmen",
+    "acceptActions": "Annehmen",
     "links": "Links",
     "suggestions": "Empfehlungen",
     "source": "Quelle"
