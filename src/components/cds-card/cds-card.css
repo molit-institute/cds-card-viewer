@@ -15,9 +15,6 @@ small {
   margin-bottom: 1rem;
   display: inline-block;
 }
-.link-ul {
-  line-height: 100%;
-}
 .float-right {
   float: right;
 }
@@ -25,24 +22,6 @@ small {
   margin-bottom: 0.1rem;
   text-align: left;
 }
-/* .item1 {
-  width: 80%;
-  height: auto;
-  padding-right: 1.25rem;
-  float: left;
-}
-.item2 {
-  width: 20%;
-  height: auto;
-  float: right; //only so they are in same line. Problem: doesn't have same height as item1 - Works without it with small gab at the bottom
-  position: relative;
-  padding-top: 0.75rem;
-}
-.bottom-right{
-  position: absolute;
-   bottom: 0.75rem;
-   right: 1.25rem;
-}  */
 .grid-1 {
   display: grid;
   width: 100%;

@@ -12,9 +12,19 @@ import { getLocaleComponentStrings } from "../../utils/locale";
 })
 export class CdsCard {
 
+  /**
+   * CDS card to be displayed. </br>
+   * Needs to be a JSON object
+   */
   @Prop() card!:string;
+  /**
+   * If `true`, the component will show the proposed actions. 
+   */
   @Prop() showSuggestionActions: boolean = true;
-
+  /**
+   * Language property of the component. </br>
+   * Currently suported: [de, en]
+   */
   @Prop() locale: string = "en";
   @Watch('locale')
   async watchLocale(newValue: string){
@@ -59,7 +69,6 @@ export class CdsCard {
     
   };
 
-
   render() {
     if(this.cardParsed){
       return ([
@@ -84,32 +93,14 @@ export class CdsCard {
                       <h5>{this.strings.suggestions}</h5>
                       <ul class="list-group">
                         {this.cardParsed.suggestions.map(suggestion =>
-                          /* <li class="list-group-item list-group-item-primary">
-                              <div class="item1">
-                                {suggestion.label}
-                                { suggestion.hasOwnProperty("actions") && suggestion.actions!=null && this.showSuggestionActions ? 
-                                  ( 
-                                    <ul>
-                                      {suggestion.actions.map(action =>
-                                        <li>
-                                          {action.description}
-                                        </li>
-                                      )}
-                                    </ul>
-                                  ) 
-                                : null }
-                              </div>
-                              <div class="item2"></div>
-                              <button type="button" class="btn btn-primary bottom-right" onClick={() => this.acceptActions}>Accept Actions</button>
-                          </li> */
                           <li class="list-group-item list-group-item-primary grid-1">
                             <div class="item1">
                               {suggestion.label}
                               { suggestion.hasOwnProperty("actions") && suggestion.actions!=null && this.showSuggestionActions ? 
                                 ( 
-                                  <ul>
+                                  <ul class="card-action-ul">
                                     {suggestion.actions.map(action =>
-                                      <li>
+                                      <li class="card-action-li">
                                         {action.description}
                                       </li>
                                     )}
@@ -118,8 +109,7 @@ export class CdsCard {
                               : null }
                             </div>
                             <button type="button" class="btn btn-primary bottom-right" onClick={() => this.acceptActions}>{this.strings.acceptActions}</button>
-                          </li>
-                          
+                          </li>                          
                         )}
                       </ul>
                     </div>
@@ -130,12 +120,11 @@ export class CdsCard {
                    <div>
                       <br/>
                       <h5>{this.strings.links}</h5>
+                      <ul class="card-link-ul">
                       {this.cardParsed.links.map(link =>
-                        <ul class="link-ul">
-                          {/*<button type="button" class="btn btn-primary btn-block my-btn" onClick={() => window.open(link.url, '_blank')}>{link.label}</button> */}
-                          <li><a href={link.url}>{link.label}</a></li>
-                        </ul>
+                          <li class="card-link-li"> <a href={link.url} target="_blank">{link.label}</a></li>
                       )}
+                      </ul>
                     </div>
                    
                   : null
