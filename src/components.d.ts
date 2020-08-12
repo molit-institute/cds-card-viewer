@@ -7,8 +7,17 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CdsCard {
+        /**
+          * CDS card to be displayed. </br> Needs to be a JSON object
+         */
         "card": string;
+        /**
+          * Language property of the component. </br> Currently suported: [de, en]
+         */
         "locale": string;
+        /**
+          * If `true`, the component will show the proposed actions.
+         */
         "showSuggestionActions": boolean;
     }
 }
@@ -25,8 +34,17 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CdsCard {
+        /**
+          * CDS card to be displayed. </br> Needs to be a JSON object
+         */
         "card": string;
+        /**
+          * Language property of the component. </br> Currently suported: [de, en]
+         */
         "locale"?: string;
+        /**
+          * If `true`, the component will show the proposed actions.
+         */
         "showSuggestionActions"?: boolean;
     }
     interface IntrinsicElements {
