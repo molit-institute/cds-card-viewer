@@ -1,5 +1,6 @@
 # CDS Card Viewer
-UI-Component for displaying CDS cards following the CDS Hooks specification at [https://cds-hooks.hl7.org/1.0/#card-attributes]
+UI-Component for rendering CDS card JSON objects following the CDS Hooks specification at [https://cds-hooks.hl7.org/1.0/#card-attributes].
+
 
 ## Install
 
