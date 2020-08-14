@@ -16,6 +16,10 @@ export namespace Components {
          */
         "locale": string;
         /**
+          * If `true`, the component will end each link with an external-link icon.
+         */
+        "showExternalLinkIcon": boolean;
+        /**
           * If `true`, the component will show the proposed actions.
          */
         "showSuggestionActions": boolean;
@@ -42,6 +46,10 @@ declare namespace LocalJSX {
           * Language property of the component. </br> Currently suported: [de, en]
          */
         "locale"?: string;
+        /**
+          * If `true`, the component will end each link with an external-link icon.
+         */
+        "showExternalLinkIcon"?: boolean;
         /**
           * If `true`, the component will show the proposed actions.
          */
