@@ -40,3 +40,16 @@ small {
    right: 1.25rem;
   grid-area: 1 / 2;
 } 
+ /* .card-link-ul {
+  list-style-type:none;
+}
+.card-link-li{
+  background-image: url("./assets/open_in_new-24px.svg") ;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}  */
+.link-img {
+  width:20px;
+  height:20px;
+  padding: 0 0 3.75px 0;
+}

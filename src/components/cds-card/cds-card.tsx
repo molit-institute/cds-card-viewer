@@ -5,10 +5,7 @@ import { getLocaleComponentStrings } from "../../utils/locale";
   tag: 'cds-card',
   styleUrl: 'cds-card.css',
   shadow: false,
-  scoped: true,
-  assetsDirs: [
-    '../../i18n'
-]
+  scoped: true
 })
 export class CdsCard {
 
@@ -31,11 +28,18 @@ export class CdsCard {
     console.log(newValue)
     this.strings = await getLocaleComponentStrings(this.element, newValue);
   }
+  /**
+   * If `true`, the component will end each link with an external-link icon.
+   */
+  @Prop() showExternalLinkIcon: boolean = true;
 
   @Element() element: HTMLElement;
 
-  cardParsed: any;
   @State() strings: any;
+
+  cardParsed: any;
+
+  
 
   /* Validators */
   @Watch('card')
@@ -62,7 +66,7 @@ export class CdsCard {
     try {
       this.validateCard();
       this.parseCard();
-      this.strings = await getLocaleComponentStrings(this.element, this.locale);   
+      this.strings = await getLocaleComponentStrings(this.element, this.locale);
       } catch (e) {
         console.error(e);
       }
@@ -122,7 +126,16 @@ export class CdsCard {
                       <h5>{this.strings.links}</h5>
                       <ul class="card-link-ul">
                       {this.cardParsed.links.map(link =>
-                          <li class="card-link-li"> <a href={link.url} target="_blank">{link.label}</a></li>
+                          <li class="card-link-li"> 
+                            <a href={link.url} target="_blank">
+                              {link.label} 
+                              { this.showExternalLinkIcon ?
+                                <svg width="24" height="24" viewBox="0 0 24 24" class="link-img">
+                                  <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                </svg>
+                              : null }
+                            </a>
+                          </li>
                       )}
                       </ul>
                     </div>
