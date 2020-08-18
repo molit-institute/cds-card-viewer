@@ -5,10 +5,12 @@ import { getLocaleComponentStrings } from "../../utils/locale";
   tag: 'cds-card',
   styleUrl: 'cds-card.css',
   shadow: false,
-  scoped: true
+  scoped: true,
+  assetsDirs: ['assets']
 })
 export class CdsCard {
 
+  @Prop({ context: 'publicPath'}) private publicPath: string;
   /**
    * CDS card to be displayed. </br>
    * Needs to be a JSON object
@@ -58,6 +60,18 @@ export class CdsCard {
 
   acceptActions(){
     //TODO
+  }
+
+  getPath(image: string){
+    console.log(this.publicPath);
+    if (this.publicPath === "/") {
+      const url = "~/@molit/cds-card-viewer/dist/cds-card-viewer/assets/" + image;
+      console.log(url);
+      return url;
+    } else {
+      return this.publicPath + "cds-card-viewer/assets/" + image;
+    }
+    
   }
 
   /* Lifecycle Methods */
@@ -130,9 +144,7 @@ export class CdsCard {
                             <a href={link.url} target="_blank">
                               {link.label} 
                               { this.showExternalLinkIcon ?
-                                <svg width="24" height="24" viewBox="0 0 24 24" class="link-img">
-                                  <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
-                                </svg>
+                                <img src={require("~/@molit/cds-card-viewer/dist/cds-card-viewer/assets/open-in-new.svg")} alt="External Link Icon" class="link-img"/>
                               : null }
                             </a>
                           </li>

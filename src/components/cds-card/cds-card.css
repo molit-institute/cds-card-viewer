@@ -52,4 +52,5 @@ small {
   width:20px;
   height:20px;
   padding: 0 0 3.75px 0;
+  /* fill: currentColor; */
 }

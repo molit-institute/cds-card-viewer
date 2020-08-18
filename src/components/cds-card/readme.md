@@ -14,6 +14,7 @@
 | `showExternalLinkIcon`  | `show-external-link-icon` | If `true`, the component will end each link with an external-link icon. | `boolean` | `true`      |
 | `showSuggestionActions` | `show-suggestion-actions` | If `true`, the component will show the proposed actions.                | `boolean` | `true`      |
 
+
 ----------------------------------------------
 
 *Built with love! by MOLIT Institut gGmbH ❤❤*
