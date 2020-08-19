@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
+import { Component, h, Prop, Element, State, Watch, getAssetPath } from '@stencil/core';
 import { getLocaleComponentStrings } from "../../utils/locale";
 
 @Component({
@@ -63,12 +63,17 @@ export class CdsCard {
   }
 
   getPath(image: string){
+    console.log("window Path: " + window.location.pathname);
     console.log(this.publicPath);
     if (this.publicPath === "/") {
-      const url = "~/@molit/cds-card-viewer/dist/cds-card-viewer/assets/" + image;
+      const url = getAssetPath(`./assets/${image}`);// TODO make it work with getPath --> current src works
       console.log(url);
       return url;
-    } else {
+    } if (this.publicPath === "/build/") {
+      console.log( this.publicPath + "assets/" + image);
+      return this.publicPath + "assets/" + image; 
+    }
+     else {
       return this.publicPath + "cds-card-viewer/assets/" + image;
     }
     
@@ -144,7 +149,7 @@ export class CdsCard {
                             <a href={link.url} target="_blank">
                               {link.label} 
                               { this.showExternalLinkIcon ?
-                                <img src={require("~/@molit/cds-card-viewer/dist/cds-card-viewer/assets/open-in-new.svg")} alt="External Link Icon" class="link-img"/>
+                                <img src={require("../cds-card-viewer/assets/open-in-new.svg")} alt="External Link Icon" class="link-img"/> //this.getPath(`open-in-new.svg`) 
                               : null }
                             </a>
                           </li>
