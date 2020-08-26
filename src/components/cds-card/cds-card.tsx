@@ -130,7 +130,7 @@ export class CdsCard {
                             <a href={link.url} target="_blank">
                               {link.label}&nbsp; 
                               { this.showExternalLinkIcon ?
-                                <a innerHTML={openInNew} ></a>
+                                <span innerHTML={openInNew} ></span>
                               : null }
                             </a>
                           </li>
