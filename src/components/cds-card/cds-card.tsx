@@ -1,16 +1,15 @@
-import { Component, h, Prop, Element, State, Watch, getAssetPath } from '@stencil/core';
+import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
 import { getLocaleComponentStrings } from "../../utils/locale";
+import { openInNew } from "../../utils/svg-icons";
 
 @Component({
   tag: 'cds-card',
   styleUrl: 'cds-card.css',
   shadow: false,
-  scoped: true,
-  assetsDirs: ['assets']
+  scoped: true
 })
 export class CdsCard {
 
-  @Prop({ context: 'publicPath'}) private publicPath: string;
   /**
    * CDS card to be displayed. </br>
    * Needs to be a JSON object
@@ -41,8 +40,6 @@ export class CdsCard {
 
   cardParsed: any;
 
-  
-
   /* Validators */
   @Watch('card')
   validateCard() {
@@ -62,23 +59,6 @@ export class CdsCard {
     //TODO
   }
 
-  getPath(image: string){
-    console.log("window Path: " + window.location.pathname);
-    console.log(this.publicPath);
-    if (this.publicPath === "/") {
-      const url = getAssetPath(`./assets/${image}`);// TODO make it work with getPath --> current src works
-      console.log(url);
-      return url;
-    } if (this.publicPath === "/build/") {
-      console.log( this.publicPath + "assets/" + image);
-      return this.publicPath + "assets/" + image; 
-    }
-     else {
-      return this.publicPath + "cds-card-viewer/assets/" + image;
-    }
-    
-  }
-
   /* Lifecycle Methods */
   
   async componentWillLoad(): Promise<void> {
@@ -86,6 +66,7 @@ export class CdsCard {
       this.validateCard();
       this.parseCard();
       this.strings = await getLocaleComponentStrings(this.element, this.locale);
+
       } catch (e) {
         console.error(e);
       }
@@ -147,16 +128,15 @@ export class CdsCard {
                       {this.cardParsed.links.map(link =>
                           <li class="card-link-li"> 
                             <a href={link.url} target="_blank">
-                              {link.label} 
+                              {link.label}&nbsp; 
                               { this.showExternalLinkIcon ?
-                                <img src={require("../cds-card-viewer/assets/open-in-new.svg")} alt="External Link Icon" class="link-img"/> //this.getPath(`open-in-new.svg`) 
+                                <a innerHTML={openInNew} ></a>
                               : null }
                             </a>
                           </li>
                       )}
                       </ul>
-                    </div>
-                   
+                    </div>                   
                   : null
                 }
               </div>
