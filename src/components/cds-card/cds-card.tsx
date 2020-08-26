@@ -1,5 +1,6 @@
 import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
 import { getLocaleComponentStrings } from "../../utils/locale";
+import { openInNew } from "../../utils/svg-icons";
 
 @Component({
   tag: 'cds-card',
@@ -39,8 +40,6 @@ export class CdsCard {
 
   cardParsed: any;
 
-  
-
   /* Validators */
   @Watch('card')
   validateCard() {
@@ -67,6 +66,7 @@ export class CdsCard {
       this.validateCard();
       this.parseCard();
       this.strings = await getLocaleComponentStrings(this.element, this.locale);
+
       } catch (e) {
         console.error(e);
       }
@@ -128,18 +128,15 @@ export class CdsCard {
                       {this.cardParsed.links.map(link =>
                           <li class="card-link-li"> 
                             <a href={link.url} target="_blank">
-                              {link.label} 
+                              {link.label}&nbsp; 
                               { this.showExternalLinkIcon ?
-                                <svg width="24" height="24" viewBox="0 0 24 24" class="link-img">
-                                  <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
-                                </svg>
+                                <span innerHTML={openInNew} ></span>
                               : null }
                             </a>
                           </li>
                       )}
                       </ul>
-                    </div>
-                   
+                    </div>                   
                   : null
                 }
               </div>
