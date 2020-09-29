@@ -1,6 +1,7 @@
 import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
 import { getLocaleComponentStrings } from "../../utils/locale";
 import { openInNew } from "../../utils/svg-icons";
+import { markdownToHtml } from "../../utils/util";
 
 @Component({
   tag: 'cds-card',
@@ -15,6 +16,10 @@ export class CdsCard {
    * Needs to be a JSON object
    */
   @Prop() card!:string;
+  @Watch('card')
+  validateCard() {
+    if (this.card == null){ throw new Error('card: required'); }
+  }
   /**
    * If `true`, the component will show the proposed actions. 
    */
@@ -39,12 +44,6 @@ export class CdsCard {
   @State() strings: any;
 
   cardParsed: any;
-
-  /* Validators */
-  @Watch('card')
-  validateCard() {
-    if (this.card == null){ throw new Error('card: required'); }
-  }
 
   /* methods */
   parseCard(){
@@ -99,18 +98,22 @@ export class CdsCard {
                         {this.cardParsed.suggestions.map(suggestion =>
                           <li class="list-group-item list-group-item-primary grid-1">
                             <div class="item1">
-                              {suggestion.label}
+                              <div innerHTML={markdownToHtml(suggestion.label, true)}></div> {/* TODO*/}
+                              <hr/>
                               { suggestion.hasOwnProperty("actions") && suggestion.actions!=null && this.showSuggestionActions ? 
-                                ( 
-                                  <ul class="card-action-ul">
+                                (<div>
                                     {suggestion.actions.map(action =>
-                                      <li class="card-action-li">
-                                        {action.description}
-                                      </li>
+                                      <div class="card-action">
+                                        {action.type === "create" ? <span class="badge badge-pill badge-success green">Create</span>
+                                        : (action.type === "update" ? <span class="badge badge-pill badge-warning yellow">Update</span> 
+                                          : (action.type === "delete" ? <span class="badge badge-pill badge-danger red">Delete</span>
+                                            : null)
+                                          )  
+                                        } {action.description}
+                                      </div>                                                                            
                                     )}
-                                  </ul>
-                                ) 
-                              : null }
+                                  </div>) 
+                              : null }                              
                             </div>
                             <button type="button" class="btn btn-primary bottom-right" onClick={() => this.acceptActions}>{this.strings.acceptActions}</button>
                           </li>                          
