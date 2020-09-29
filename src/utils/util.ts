@@ -19,9 +19,8 @@ export const markdownToHtml = (markdown, openLinksInNewTab = false) => {
   if (openLinksInNewTab) {
     html = html.replace(/<a /g, '<a target="_blank" rel="nofollow" ');
   }
-  if (html.includes("&lt;/br&gt;") ) {
-    html = html.replace("&lt;/br&gt;", '</br>');
-  }
+
+  html = html.replace(/&lt;br&gt;/g, '<br>');
 
   return html;
 };
