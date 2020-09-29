@@ -101,21 +101,18 @@ export class CdsCard {
                               <div innerHTML={markdownToHtml(suggestion.label, true)}></div> {/* TODO*/}
                               <hr/>
                               { suggestion.hasOwnProperty("actions") && suggestion.actions!=null && this.showSuggestionActions ? 
-                                ( 
-                                  <ul class="card-action-ul">
+                                (<div>
                                     {suggestion.actions.map(action =>
-                                      <li class="card-action-li">
+                                      <div class="card-action">
                                         {action.type === "create" ? <span class="badge badge-pill badge-success green">Create</span>
                                         : (action.type === "update" ? <span class="badge badge-pill badge-warning yellow">Update</span> 
                                           : (action.type === "delete" ? <span class="badge badge-pill badge-danger red">Delete</span>
                                             : null)
                                           )  
-                                        }                                      
-                                        <t/> {action.description}
-                                      </li>                                                                            
+                                        } {action.description}
+                                      </div>                                                                            
                                     )}
-                                  </ul>
-                                ) 
+                                  </div>) 
                               : null }                              
                             </div>
                             <button type="button" class="btn btn-primary bottom-right" onClick={() => this.acceptActions}>{this.strings.acceptActions}</button>
