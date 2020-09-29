@@ -27,7 +27,7 @@ small {
   width: 100%;
   grid-gap: 1.25rem;
   position: relative; 
-  grid-template-columns: 80% 20%; 
+  grid-template-columns: 85% 15%; 
 }
 .item1 {
   grid-area: 1 / 1;
@@ -40,6 +40,27 @@ small {
    right: 1.25rem;
   grid-area: 1 / 2;
 } 
+.badge {
+  display: inline-block;
+  padding: .35em .65em;
+  font-size: .75em;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .5rem;
+}
+.green{
+  background-color:#379880;
+
+}
+.yellow{
+  background-color: #FFD97D;
+}
+.red{
+  background-color: #bf0023;
+}
  /* .card-link-ul { // How to change bullets to image
   list-style-type:none;
 }
