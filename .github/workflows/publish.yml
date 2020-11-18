@@ -4,6 +4,8 @@ name: Test and publish
 on:
   release:
     types: [created]
+  push:
+    branches: [ 15-fix-GitHubActions ]
 
 jobs:
   # This workflow contains a single job called "publish"
