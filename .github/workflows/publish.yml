@@ -4,8 +4,6 @@ name: Test and publish
 on:
   release:
     types: [created]
-  push:
-    branches: [ 15-fix-GitHubActions ]
 
 jobs:
   # This workflow contains a single job called "publish"
@@ -39,18 +37,18 @@ jobs:
     #testing
     - run: npm run test
     #publish if all previous steps run through
-    #- name: publish
-    #  if: ${{ success() }}
-    #  run: |
-    #    echo "Deploying to npm ..."
-    #    npm publish --access public
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #    NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: publish
+      if: ${{ success() }}
+      run: |
+        echo "Deploying to npm ..."
+        npm publish --access public
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
   deploy-github-pages:
 
-   # needs: publish
+    needs: publish
 
     runs-on: ubuntu-latest
 
