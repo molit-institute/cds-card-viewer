@@ -90,7 +90,7 @@ export class CdsCard {
                   : null}
                 </small>
                 <br/>
-                { this.cardParsed.hasOwnProperty("detail")&& this.cardParsed.detail!=null ? <p>{this.cardParsed.detail}</p> : null } 
+                { this.cardParsed.hasOwnProperty("detail")&& this.cardParsed.detail!=null ? <div innerHTML={markdownToHtml(this.cardParsed.detail, true)}></div> : null } 
                 { this.cardParsed.hasOwnProperty("suggestions") && this.cardParsed.suggestions!=null ?
                   ( <div>
                       <h5>{this.strings.suggestions}</h5>
