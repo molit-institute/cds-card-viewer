@@ -17,9 +17,11 @@ describe('cds-card', () => {
              </h4>
              <small></small>
              <br>
-             <p>
+             <div>
+              <p>
                No subtype found for patient
-             </p>
+              </p>
+             </div>
            </div>
          </div>
        </div>
