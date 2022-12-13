@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <title>Stencil Component Starter</title>
 
   <script type="module" src="/build/cds-card-viewer.esm.js"></script>
   <script nomodule src="/build/cds-card-viewer.js"></script>
 
 </head>
+
 <body>
 
-  <cds-card
-  card='{
+  <cds-card card='{
     "summary": "3 Possible Clinical Trials have been found for the Condition: C18 - malignant neoplasm of colon and Subtype: C2852 - Adenocarcinoma (Studies last indexed: 2020-08-11, 11:34 AM)",
-    "detail":"The following Research Studies could be considered for the patients condition constellation",
+    "detail":"The following Research Studies could be considered for the patients condition **constellation**",
     "indicator":"info",
     "source":{
       "label":"MOLIT Institute",
@@ -24,6 +26,7 @@
       "suggestions":[{
         "label":"##### Title: Radio-Immunotherapy Before Cystectomy in Locally Advanced Urothelial Carcinoma of the Bladder\r\n* Status: **Active**, \r\n* Intervention: **Folfiri**,\r\n* Study Sites: \r\n   * Klinikum rechts der Isar der Technischen Universit\u00E4t M\u00FCnchen, \r\n   * Universit\u00E4tsklinikum W\u00FCrzburg,\r\n",
         "uuid":"e1187895-ad57-4ff7-a1f1-ccf954b2fe46",
+        "style": {"background-color": "coral"},
         "actions":[{
           "type":"create",
           "description":"Based on condition and subtype, the patient could be enrolled to a clinical trial",
@@ -74,10 +77,10 @@
           "appContext":null
         }
       ]
-      }' show-suggestion-actions="true"
-  ></cds-card> 
-<!--  <cds-card card='{"summary":"No Studies can be suggested.","detail":"No subtype found for patient","indicator":"critical","source":null,"suggestions":null,"selectionBehavior":null,"links":null}' />
+      }' show-suggestion-actions="true"></cds-card>
+  <!--  <cds-card card='{"summary":"No Studies can be suggested.","detail":"No subtype found for patient","indicator":"critical","source":null,"suggestions":null,"selectionBehavior":null,"links":null}' />
 -->
 
 </body>
+
 </html>
