@@ -96,7 +96,7 @@ export class CdsCard {
                       <h5>{this.strings.suggestions}</h5>
                       <ul class="list-group">
                         {this.cardParsed.suggestions.map(suggestion =>
-                          <li class="list-group-item list-group-item-primary grid-1">
+                          <li class="list-group-item list-group-item-primary grid-1" style={ suggestion.style != null ? suggestion.style : {} }>
                             <div class="item1">
                               <div innerHTML={markdownToHtml(suggestion.label, true)}></div> {/* TODO*/}
                               <hr/>
