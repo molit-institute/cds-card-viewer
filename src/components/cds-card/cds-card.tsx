@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
+import { Component, h, Prop, Element, State, Watch, Event, EventEmitter } from '@stencil/core';
 import { getLocaleComponentStrings } from "../../utils/locale";
 import { openInNew } from "../../utils/svg-icons";
 import { markdownToHtml } from "../../utils/util";
@@ -53,9 +53,9 @@ export class CdsCard {
       console.error("The specified string for card is not valid JSON")//TODO
     }
   }
-
-  acceptActions() {
-    //TODO
+  @Event() acceptAction: EventEmitter;
+  acceptActions(suggestion) {
+    this.acceptAction.emit(suggestion)
   }
 
   /* Lifecycle Methods */
@@ -115,7 +115,7 @@ export class CdsCard {
                             </div>)
                             : null}
                         </div>
-                        <button type="button" class="btn btn-primary bottom-right" onClick={() => this.acceptActions}>{this.strings.acceptActions}</button>
+                        <button type="button" class="btn btn-primary bottom-right" onClick={() => this.acceptActions(suggestion)}>{this.strings.acceptActions}</button>
                       </li>
                     )}
                   </ul>

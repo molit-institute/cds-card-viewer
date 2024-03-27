@@ -25,6 +25,10 @@ export namespace Components {
         "showSuggestionActions": boolean;
     }
 }
+export interface CdsCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCdsCardElement;
+}
 declare global {
     interface HTMLCdsCardElement extends Components.CdsCard, HTMLStencilElement {
     }
@@ -46,6 +50,7 @@ declare namespace LocalJSX {
           * Language property of the component. </br> Currently suported: [de, en]
          */
         "locale"?: string;
+        "onAcceptAction"?: (event: CdsCardCustomEvent<any>) => void;
         /**
           * If `true`, the component will end each link with an external-link icon.
          */

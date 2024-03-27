@@ -77,10 +77,14 @@
           "appContext":null
         }
       ]
-      }' show-suggestion-actions="true"></cds-card>
+      }' show-suggestion-actions="true" ></cds-card>
   <!--  <cds-card card='{"summary":"No Studies can be suggested.","detail":"No subtype found for patient","indicator":"critical","source":null,"suggestions":null,"selectionBehavior":null,"links":null}' />
 -->
 
+  <script>
+    const element = document.querySelector('cds-card');
+    element.addEventListener('acceptAction', event => {console.log('Pressed Accept Action', event.detail) })
+  </script>
 </body>
 
 </html>
