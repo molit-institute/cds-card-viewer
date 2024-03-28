@@ -35,7 +35,7 @@
     "@types/marked": "^4.0.8",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
-    "puppeteer": "^10.4.0"
+    "puppeteer": "^22.6.1"
   },
   "license": "Apache-2.0",
   "dependencies": {
