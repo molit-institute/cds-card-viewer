@@ -14,7 +14,7 @@ export const markdownToHtml = (markdown, openLinksInNewTab = false) => {
     return "";
   }
 
-  let html = DOMPurify.sanitize(marked(markdown, { sanitize: true }));
+  let html = DOMPurify.sanitize(marked.parse(markdown));
 
   if (openLinksInNewTab) {
     html = html.replace(/<a /g, '<a target="_blank" rel="nofollow" ');

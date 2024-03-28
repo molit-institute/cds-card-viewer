@@ -31,17 +31,17 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
+    "@types/jest": "^27.5.2",
     "@types/marked": "^4.0.8",
-    "jest": "^27.4.5",
-    "jest-cli": "^27.4.5",
-    "puppeteer": "^10.0.0"
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1",
+    "puppeteer": "^10.4.0"
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "dompurify": "^2.3.6",
-    "fs-extra": "^10.0.0",
-    "marked": "^4.2.4",
-    "@stencil/core": "^2.13.0"
+    "@stencil/core": "^2.22.3",
+    "dompurify": "^3.0.11",
+    "fs-extra": "^10.1.0",
+    "marked": "^4.3.0"
   }
 }
