@@ -15,6 +15,13 @@
 | `showSuggestionActions` | `show-suggestion-actions` | If `true`, the component will show the proposed actions.                | `boolean` | `true`      |
 
 
+## Events
+
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `acceptAction` |             | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with love! by MOLIT Institut gGmbH ❤❤*

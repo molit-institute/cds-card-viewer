@@ -30,7 +30,18 @@ export interface CdsCardCustomEvent<T> extends CustomEvent<T> {
     target: HTMLCdsCardElement;
 }
 declare global {
+    interface HTMLCdsCardElementEventMap {
+        "acceptAction": any;
+    }
     interface HTMLCdsCardElement extends Components.CdsCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLCdsCardElementEventMap>(type: K, listener: (this: HTMLCdsCardElement, ev: CdsCardCustomEvent<HTMLCdsCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLCdsCardElementEventMap>(type: K, listener: (this: HTMLCdsCardElement, ev: CdsCardCustomEvent<HTMLCdsCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLCdsCardElement: {
         prototype: HTMLCdsCardElement;
