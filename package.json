@@ -1,6 +1,6 @@
 {
   "name": "@molit/cds-card-viewer",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "UI-Component for displaying CDS cards following the CDS Hooks specification at https://cds-hooks.hl7.org/1.0/#card-attributes",
   "keywords": [
     "cds",
